@@ -77,14 +77,14 @@ class Game:
         self.dino = Dinosaur()
         self.obstacle = Obstacle()
         self.running = True
-        self.lives = 1
+        self.lives = 3
         self.timer = 0
         self.game_over = False
 
     def reset(self):
         self.dino = Dinosaur()
         self.obstacle = Obstacle()
-        self.lives = 1
+        self.lives = 3
         self.timer = 0
         self.game_over = False
 
@@ -107,7 +107,9 @@ class Game:
         self.dino.draw(screen)
         self.obstacle.draw(screen)
         timer_text = font.render(f"Time: {int(self.timer)}", True, BLACK)
+        lives_text = font.render(f"Lives: {self.lives}", True, BLACK)
         screen.blit(timer_text, (10, 10))
+        screen.blit(lives_text, (10, 50))
 
         if self.game_over:
             game_over_text = font.render("Game Over! Press R to restart.", True, RED)
